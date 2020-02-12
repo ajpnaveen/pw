@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>My First Heading</h1>
+<p>My first paragraph.</p>
+
+<button onClick="subscribe()">Subscribe</button>
+
+<script>
+    addEventListner('load', asyn() => {
+        let sw = await navigator.serviceWorker.register('./sw.js');
+        console.log(sw);
+    });
+
+    async function subscribe() {
+        let sw = await navigator.serviceWorker.ready;
+        let push = await sw.pushManager.subscribe({
+            userVisibility: true,
+            applicationServerKey: 'BMPz1jk8fNmd91XaBetWorU3IpxUOrAUDdDUcAgIblueM9L7K1956K8EswepCm0_QKiM9ncx2i1dwC7iS8iWJSg'
+        });
+
+        console.log(JSON.stringify(push));
+    }
+</script>
+</body>
+</html>
