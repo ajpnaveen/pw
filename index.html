@@ -8,7 +8,7 @@
 <button onclick="subscribe()">Subscribe</button>
 
 <script>
-    addEventListner('load', asyn () => {
+    addEventListener('load', asyn () => {
         let sw = await navigator.serviceWorker.register('./sw.js');
         console.log(sw);
     })
