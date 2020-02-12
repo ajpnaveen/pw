@@ -11,14 +11,14 @@
     addEventListener('load', async () => {
         let sw = await navigator.serviceWorker.register('./sw.js');
         console.log(sw);
-    })
+    });
 
     async function subscribe() {
         let sw = await navigator.serviceWorker.ready;
         let push = await sw.pushManager.subscribe({
             userVisibleOnly: true,
             applicationServerKey: 'BMPz1jk8fNmd91XaBetWorU3IpxUOrAUDdDUcAgIblueM9L7K1956K8EswepCm0_QKiM9ncx2i1dwC7iS8iWJSg'
-        })
+        });
         console.log(JSON.stringify(push));
     }
 </script>
